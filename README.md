@@ -1,22 +1,12 @@
-TypeScript Typed Validator zod Demo
+TypeScript Typed Validator yup Demo
 ===========================
 
-据说在type层面有点慢，但通常使用应该没什么问题。生态比较好。
+yup感觉更适合javascript，对于类型不是那么认真：
 
-api还比较简单，报错也可以，但是不能直接生成json schema，需要用插件
+1. 默认所有值都是`optional`
+2. 如果没有指定`strict: true`，则会自己转换数据类型
 
 ```
 npm install
 npm run demo
 ```
-
-Note:
-
-`esModuleInterop` is recommended to set to `true`,
-since we can have consistent importing syntax with babel,
-always use:
-
-```
-import some from 'some'
-```
-

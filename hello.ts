@@ -1,26 +1,29 @@
-import { number, string, z } from 'zod';
+import * as y from 'yup';
+import { InferType } from 'yup';
 
-const user = z.object({
-    username: z.union([string(), number()]),
+const user = y.object({
+    username: y.string().required()
 })
-
 
 console.log(user);
 
-type User = z.infer<typeof user>;
+type User = InferType<typeof user>;
 
 const user1: User = {
     username: 'Freewind'
 }
 
-const user2: User = {
-    username: 123
-}
+// const user2: User = {
+//     username: 123
+// }
 
-console.log(user.parse({ username: 111 }));
+// pass
+console.log(user.validateSync({ username: 'hello' }));
+console.log(user.validateSync({ username: 111 }));
 
-const error = user.safeParse({ username: true })
-console.log(JSON.stringify(error, null, 4));
+// throw errors if specified 'strict: true'
+console.log(user.validateSync({ username: 111 }, {strict: true}));
+
 
 
 
