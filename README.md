@@ -1,10 +1,16 @@
-TypeScript Typed Validator yup Demo
+TypeScript Typed Validator Yup Union Type Demo
 ===========================
 
-yup感觉更适合javascript，对于类型不是那么认真：
+似乎在yup中没有办法表现union type，类似于：
 
-1. 默认所有值都是`optional`
-2. 如果没有指定`strict: true`，则会自己转换数据类型
+```
+type User = {
+    username: string | number
+}
+```
+
+看issues里的讨论，zod就是为了解决这个问题而出现的：
+https://github.com/jquense/yup/issues/593#issuecomment-605717756
 
 ```
 npm install
